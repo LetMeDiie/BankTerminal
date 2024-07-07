@@ -1,14 +1,18 @@
 package com.letmedie.main;
 
+//Our main class. 
+
 public class Terminal {
-    private TerminalManager terminalManager;
+    private TerminalManager terminalManager; 
+    //terminal status and commands
 
     public Terminal() {
         terminalManager = new TerminalManagerLogin(this);
     }
 
 
-    public void run(){
+    public void run(){ 
+        //Launch the program
         while (true)
             terminalManager.run();
 
