@@ -22,7 +22,8 @@ public class TerminalManagerUser extends TerminalManager {
     }
 
     @Override
-    protected void displayCommands() {
+    protected void displayCommands() { 
+        //even more commands
         System.out.println("____User Menu____");
         System.out.println("1. View Balance");
         System.out.println("2. Deposit");
@@ -34,30 +35,36 @@ public class TerminalManagerUser extends TerminalManager {
 
     @Override
     protected Command createCommand(String commandType) {
+         //and this class also resembles a factory
          TransactionManagerInterface transactionManager=new TransactionManagerSimple();
         switch (commandType) {
             case "1":
-                return new ViewBalanceCommand(user);
+                return new ViewBalanceCommand(user); 
+                //ok easy 
             case "2":
                 double depositAmount = getValidatedAmount("Enter amount to deposit: ");
-                return new DepositCommand(user, depositAmount, transactionManager);
+                return new DepositCommand(user, depositAmount, transactionManager); 
+                // ok not hard
             case "3":
                 String recipientCardNumber = input.requestInput("Enter recipient's card number: ");
                 UserManager userManager = new UserManagerSimple();
                 double transferAmount = getValidatedAmount("Enter amount to transfer: ");
                 return new TransferCommand(user, recipientCardNumber,userManager, transferAmount, transactionManager);
+                //whaat?
             case "4":
                 Iterator<Transaction> transactionIterator = transactionManager.getTransactionsIterator(user);
-                return new ViewTransactionCommand(transactionIterator);
+                return new ViewTransactionCommand(transactionIterator); 
+                //hmm
             case "5":
                 return new LogoutCommand(this);
+                //very easy
             default:
                 System.out.println("Invalid command. Try again!");
                 return null;
         }
     }
 
-    private double getValidatedAmount(String prompt) {
+    private double getValidatedAmount(String prompt) { 
         while (true) {
             try {
                 return Double.parseDouble(input.requestInput(prompt));
