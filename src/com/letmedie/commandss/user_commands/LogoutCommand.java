@@ -13,7 +13,10 @@ public class LogoutCommand implements Command {
     }
     @Override
     public void execute() {
+        //If the user has decided to log out of the account, it is time to go to the authentication menu  
+        //so that others can use the terminal.
        TerminalManager newTerminalManager = new TerminalManagerLogin(terminalManager.getTerminal());
+       //change the terminal state 
        System.out.println("You have successfully logged out.");
        terminalManager.changeTerminalManager(newTerminalManager);
     }
