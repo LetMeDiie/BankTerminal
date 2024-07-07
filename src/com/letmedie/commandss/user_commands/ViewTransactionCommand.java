@@ -6,6 +6,8 @@ import com.letmedie.models.User;
 
 import java.util.Iterator;
 
+//A slightly complicated class for viewing transaction history. It uses something like a pattern iterator
+
 public class ViewTransactionCommand implements Command {
     private Iterator<Transaction> iterator;
 
