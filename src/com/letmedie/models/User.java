@@ -1,6 +1,6 @@
 package com.letmedie.models;
 
-
+//our favorite user
 public class User {
     private String userName;
     private String cardNumber;
@@ -15,15 +15,19 @@ public class User {
     }
 
     public double getBalance() throws IllegalArgumentException{
-        return accountBalance.getBalance();
+        //delegation
+        return accountBalance.getBalance(); 
     }
     public void deposit(double amount) throws IllegalArgumentException{
+        //delegation
         accountBalance.deposit(amount);
     }
     public void withdraw(double amount) throws IllegalArgumentException{
+        //delegation
         accountBalance.withdraw(amount);
     }
     public void transfer(User recipient, double amount)throws IllegalArgumentException{
+        //delegation
         accountBalance.transfer(recipient.getAccountBalance(),amount);
     }
 
@@ -40,5 +44,6 @@ public class User {
 
     public String getPinCode() {
         return pinCode;
+        //Well it seems everyone can now access the PIN code
     }
 }
