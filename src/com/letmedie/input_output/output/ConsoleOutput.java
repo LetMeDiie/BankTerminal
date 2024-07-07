@@ -5,4 +5,6 @@ public class ConsoleOutput implements Output{
     public  void printOutput(String message) {
         System.out.println(message);
     }
+    //It was a pleasure working with you at the beginning of the project.
+
 }
