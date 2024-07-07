@@ -26,11 +26,13 @@ public class UserManagerSimple implements UserManager {
                 }
             }
             throw new AuthenticationException("User with card number " + cardNumber + " not found.");
+            //What a pity that you entered the wrong card number
         }
 
         public void verifyPinCode(User user, String pinCode) throws AuthenticationException {
             if (!user.getPinCode().equals(pinCode)) {
                 throw new AuthenticationException("Invalid pin code for card number " + user.getCardNumber());
+                //I wonder if you forgot your PIN code or are you an attacker?
             }
         }
 }
