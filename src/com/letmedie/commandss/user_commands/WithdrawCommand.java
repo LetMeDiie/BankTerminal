@@ -18,13 +18,19 @@ public class WithdrawCommand implements Command {
     @Override
     public void execute() {
         try {
-            user.withdraw(amount);
+            //withdraw money
+            user.withdraw(amount); 
+            //get result
             String balance = "Your new balance: " + user.getBalance();
             System.out.println(balance);
-            System.out.println();
+            System.out.println(); 
+
+            //save transaction
             Transaction transaction = new Transaction(user,"Withdraw", amount);
-            transactionManager.addTransaction(transaction);
-        } catch (IllegalArgumentException e) {
+            transactionManager.addTransaction(transaction); 
+            
+        } catch (IllegalArgumentException e) { 
+            //You can't give a negative number :(
             System.out.println(e.getMessage());
         }
     }
