@@ -1,5 +1,10 @@
 package com.letmedie.models;
 
+
+//And most importantly - money. Balance of our favorite user.
+//Most importantly, let the balance never be zero.
+//And let withdraw not throw an exception when he calls it. We need money.
+
 public class AccountBalance {
     private double balance;
 
