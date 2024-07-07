@@ -20,13 +20,17 @@ public class DepositCommand implements Command {
     @Override
     public void execute() {
         try {
+            //Making a deposit
             user.deposit(amount);
             String balance = "Your new balance: " + user.getBalance();
-            System.out.println(balance);
+            System.out.println(balance); 
             System.out.println();
+
+            //Save the transaction
             Transaction transaction = new Transaction(user,"Deposit",amount);
             transactionManager.addTransaction(transaction);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) { 
+            //Someone passed a negative number
             System.out.println(e.getMessage());
             System.out.println();
         }
