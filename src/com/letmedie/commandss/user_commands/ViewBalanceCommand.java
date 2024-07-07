@@ -3,6 +3,8 @@ package com.letmedie.commandss.user_commands;
 import com.letmedie.commandss.Command;
 import com.letmedie.models.User;
 
+//Simple class to view balance
+
 public class ViewBalanceCommand implements Command {
     private  User user;
 
