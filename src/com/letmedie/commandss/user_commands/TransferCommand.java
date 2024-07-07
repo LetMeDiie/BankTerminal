@@ -23,10 +23,14 @@ public class TransferCommand implements Command {
     @Override
     public void execute() {
         try {
+            //We get the user who needs to make a transfer.
             User recipient = userManager.getUserByCardNumber(cardNumber);
             sender.transfer(recipient,amount);
+
+            //Save the transaction
             Transaction transaction = new Transaction(sender, "Transfer", amount);
-            transactionManager.addTransaction(transaction);
+            transactionManager.addTransaction(transaction); 
+            
             String result ="Successfully transferred " + amount + " to " + recipient.getUserName();
             System.out.println(result);
             System.out.println();
